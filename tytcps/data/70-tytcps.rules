@@ -1,0 +1,6 @@
+# TYTcps: let the logged-in user, and members of plugdev, program TYT
+# MD-UV390 / MD-UV380 radios (STM32 DFU mode, USB 0483:df11).
+# Install: /etc/udev/rules.d/70-tytcps.rules, then: udevadm control --reload
+# The number matters: TAG+="uaccess" only takes effect in a file that sorts
+# before systemd's 73-seat-late.rules.
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0660", GROUP="plugdev", TAG+="uaccess"

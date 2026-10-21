@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<component type="desktop-application">
+  <id>@APPID@</id>
+  <name>TYTcps</name>
+  <summary>Program TYT MD-UV390 Plus radios, AES privacy keys included</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later AND BSD-3-Clause</project_license>
+  <developer id="io.github.Humble_Helper_96">
+    <name>TYTcps contributors</name>
+  </developer>
+  <description>
+    <p>
+      A programmer for the TYT MD-UV390 and MD-UV390 Plus DMR radios: read
+      and write codeplugs with the stock CPS's pages, and write the Plus's
+      AES privacy keys, with every read checked twice and every write
+      verified.
+    </p>
+    <p>
+      The radio needs a USB permission rule on the computer before TYTcps
+      can reach it; the install instructions give the one command.
+    </p>
+  </description>
+  <url type="homepage">https://github.com/Humble-Helper-96/tytcps</url>
+  <url type="bugtracker">https://github.com/Humble-Helper-96/tytcps/issues</url>
+  <launchable type="desktop-id">@APPID@.desktop</launchable>
+  <categories>
+    <category>Utility</category>
+    <category>HamRadio</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.3.0" date="2026-10-20"/>
+  </releases>
+</component>

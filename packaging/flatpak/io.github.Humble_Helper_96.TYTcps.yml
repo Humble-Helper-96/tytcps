@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# TYTcps as a Flatpak. Build from the repository root with: make flatpak
+#
+# Python and Qt come from the PyQt base app; the engine is compiled inside
+# the build against the runtime's libusb. The radio's USB permission rule
+# can't be installed from inside a Flatpak: docs/install.md has the command.
+id: io.github.Humble_Helper_96.TYTcps
+runtime: org.kde.Platform
+runtime-version: '6.10'
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.10'
+command: tytcps
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=all              # the radio, over USB
+  - --filesystem=home         # codeplug files, and the fleet folder in ~/.local/share/tytcps
+  - --filesystem=host-etc:ro  # only to see whether the USB rule is installed
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+  # TYTcps shows no web pages: drop Qt WebEngine (over 250 MB installed)
+  - rm -rf /app/lib/libQt6WebEngine* /app/lib/libQt6WebView* /app/lib/*-linux-gnu/libQt6WebEngine*
+      /app/lib/*-linux-gnu/libQt6WebView* /app/bin/QtWebEngineProcess /app/lib/libexec/webenginedriver
+      /app/resources /app/qtwebengine_dictionaries /app/translations/qtwebengine_locales
+      /app/lib/python3*/site-packages/PyQt6/QtWebEngine* /app/lib/python3*/site-packages/PyQt6/QtWebView*
+      /app/lib/libexec/QtWebEngineProcess /app/lib/qml/QtWebEngine /app/lib/qml/QtWebView
+modules:
+  - name: tytcps
+    buildsystem: simple
+    build-commands:
+      - make install PREFIX=/app
+    sources:
+      - type: dir
+        path: ../..
+        skip:
+          - build
+          - .flatpak-builder
+          - .git
+          - tytcps/libexec

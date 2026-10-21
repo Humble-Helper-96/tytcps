@@ -1,0 +1,21 @@
+# Built programming engine (make engine)
+/tytcps/libexec/
+__pycache__/
+*.pyc
+/build/
+/.flatpak-builder/
+/dist/
+*.egg-info/
+
+# Fleet data never belongs here (tools/check-key-material.py enforces it)
+*.dec
+*.img
+*.pcap
+*.pcapng
+*.rdt
+*.bak
+ledger.tsv
+units.tsv
+radios.tsv
+current-keyset
+prewrite/

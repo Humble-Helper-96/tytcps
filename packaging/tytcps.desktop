@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=TYTcps
+GenericName=Radio programmer
+Comment=Program TYT MD-UV390 Plus radios, AES privacy keys included
+Exec=tytcps %f
+Icon=tytcps
+Terminal=false
+Categories=Utility;HamRadio;
+Keywords=TYT;DMR;MD-UV390;codeplug;CPS;radio;
+StartupWMClass=tytcps

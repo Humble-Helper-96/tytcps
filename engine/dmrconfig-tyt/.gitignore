@@ -1,0 +1,8 @@
+*.o
+*.hd
+dmrconfig
+dmrconfig.exe
+dmrconfig-fakeusb
+device.img
+device.conf
+backup.img

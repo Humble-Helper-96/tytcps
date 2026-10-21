@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuse any commit that carries privacy key material or fleet files.
+# Installed by "make hooks" (git config core.hooksPath .githooks).
+exec python3 "$(git rev-parse --show-toplevel)/tools/check-key-material.py" --staged
